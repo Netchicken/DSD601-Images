@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+  <div class="card" style=" margin-top: 20px">
+        <div class="card-header">
+            <h1>Displaying an Image On the Fly</h1>
+            <h3>Header</h3>
+            <p class="card-text">Get random faces <a href="https://generated.photos/" >Here </a> </p>
+        </div>
+        <div class="card-body">
+            <h3>Body</h3>
+
+            <form method="post" action="">
+                <div>
+                    I want to see:
+
+                    <select asp-for="Imagepath" asp-items="@(new SelectList(Model.ImagepathList))">
+                        <option selected="selected" value="">Select a face</option>
+                    </select>
+
+
+                  
+                    <input type="submit" value="Submit" />
+                </div>
+                <div style="padding:10px;">
+                  
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <h3>The generated face</h3>
+           
+            <div class="row">
+                <img src="~/images/@Model.Imagepath" class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block" />
+            </div>
+        </div>
+    </div>
