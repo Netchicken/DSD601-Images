@@ -7,14 +7,13 @@
   <div class="card" style=" margin-top: 20px">
         <div class="card-header">
             <h1>Displaying an Image On the Fly</h1>
-            <h3>Header</h3>
-            <p class="card-text">Get random faces <a href="https://generated.photos/" >Here </a> </p>
+            <h3>Get random faces <a href="https://generated.photos/">Here </a>             </h3>
         </div>
         <div class="card-body">
-            <h3>Body</h3>
+           
 
             <form method="post" action="">
-                <div>
+                <h3>
                     I want to see:
 
                     <select asp-for="Imagepath" asp-items="@(new SelectList(Model.ImagepathList))">
@@ -24,7 +23,7 @@
 
                   
                     <input type="submit" value="Submit" />
-                </div>
+                </h3>
                 <div style="padding:10px;">
                   
                 </div>

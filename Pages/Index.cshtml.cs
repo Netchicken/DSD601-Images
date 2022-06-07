@@ -8,8 +8,6 @@ namespace dsd601Images2020.Pages
     {
 
         public string? Imagepath { get; set; }
-        //   public string? FinalImagepath { get; set; }
-
         public List<string>? ImagepathList;
 
 
@@ -24,21 +22,15 @@ namespace dsd601Images2020.Pages
             ImagepathList.Add("photo4.jpg");
             ImagepathList.Add("photo5.jpg");
             ImagepathList.Add("photo6.jpg");
-
-
         }
 
         public void OnGet()
         {
-
-
         }
 
 
         public void OnPost()
         {
-            // FinalImagepath = Imagepath;
-
         }
     }
 }
