@@ -7,18 +7,18 @@
 <div class="card" style=" margin-top: 20px">
     <div class="card-header">
         <h1>Displaying an Image On the Fly</h1>
-        <h3>Get random faces <a href="https://generated.photos/">Here </a>             </h3>
+        <h3>Get random faces <a href="https://generated.photos/">Here </a> </h3>
     </div>
     <div class="card-body">
         <form method="post" action="">
-            <h3>
+           
                 I want to see:
                 <select asp-for="Imagepath" asp-items="@(new SelectList(Model.ImagepathList))">
                     <option selected="selected" value="">Select a face</option>
                 </select>
 
                 <input type="submit" value="Submit" />
-            </h3>
+           
         </form>
     </div>
     <div class="card-footer">

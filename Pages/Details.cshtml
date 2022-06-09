@@ -1,0 +1,38 @@
+﻿@page
+@model dsd601Images2020.Pages.DetailsModel
+@{
+}
+<div class="card" style=" margin-top: 20px">
+    <div class="card-header">
+        <h2>Displaying Person details</h2>
+       
+    </div>
+    <div class="card-body">
+        <form method="post" action="">
+         
+                I want to see:
+                <select asp-for="@Model.SelectedStaffId" asp-items="@Model.Staff">
+                </select>
+
+                <input type="submit" value="Submit" />
+            
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+
+           @if (Model.SelectedStaff.Name != null)
+            {
+
+            <h3>Personal details</h3>
+
+            <p class="card-text">Name  @Model.SelectedStaff.Name </p>
+            <p class="card-text">Age @Model.SelectedStaff.Age</p>
+            <p class="card-text">Occupation @Model.SelectedStaff.Occupation</p>
+            }
+            <img src="~/images/@Model.SelectedStaff.ImagePath" class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block" />
+          
+        
+        </div>
+    </div>
+</div>
