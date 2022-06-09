@@ -10,5 +10,13 @@
         public string? ImagePath { get; set; }
 
 
+
+        public PersonDetails()
+        {
+
+        }
+
     }
+
+
 }

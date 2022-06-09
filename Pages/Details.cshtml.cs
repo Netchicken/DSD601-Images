@@ -1,4 +1,5 @@
 using dsd601Images2020.Model;
+using dsd601Images2020.Operations;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -6,38 +7,33 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace dsd601Images2020.Pages
 {
-    [BindProperties]
+    //https://www.learnrazorpages.com/razor-pages/forms/select-lists
     public class DetailsModel : PageModel
     {
         public SelectList Staff { get; set; }
         //the selected image
+        [BindProperty]
         public PersonDetails? SelectedStaff { get; set; }
         //a list of images
+        [BindProperty]
         public int SelectedStaffId { get; set; }
 
-        List<PersonDetails> AllStaff { get; set; }
 
-        //create the constructor by typing ctor
+
+
         public DetailsModel()
         {
-            SelectedStaff = new PersonDetails();
 
-            AllStaff = new List<PersonDetails>
-            {
-           new PersonDetails {Id=1, Name ="John Window", Age= 28, Occupation="Builder", ImagePath = "photo1.jpg" },
-           new PersonDetails {Id=2, Name = "Kelvin Wallbanger", Age = 32,  Occupation="Baker",ImagePath = "photo2.jpg" },
-           new PersonDetails {Id=3, Name = "Jessie Fenster", Age = 12,  Occupation="Student",ImagePath = "photo3.jpg" },
-           new PersonDetails {Id=4, Name = "Nancy Chao", Age = 11,  Occupation="Student",ImagePath = "photo4.jpg" },
-           new PersonDetails {Id=5, Name = "Michael Kartoffel", Age = 52, Occupation="Stuntman", ImagePath = "photo5.jpg" },
-           new PersonDetails {Id=6, Name = "David Spiegel", Age = 61, Occupation="Accountant", ImagePath = "photo6.jpg" }
-};
-            //Create a selectlist for the dropdown
-            Staff = new SelectList(AllStaff, nameof(PersonDetails.Id), nameof(PersonDetails.Name), null);
-
-
+            Staff = new SelectList(StaticPersonDetails.StaticAllStaff, nameof(PersonDetails.Id), nameof(PersonDetails.Name), null);
         }
+        //Create a selectlist for the dropdown
+
+
+
         public void OnGet()
         {
+
+            SelectedStaff = new PersonDetails();
 
         }
 
@@ -46,7 +42,7 @@ namespace dsd601Images2020.Pages
         {
             if (ModelState.IsValid)
             {
-                foreach (var item in AllStaff)
+                foreach (var item in StaticPersonDetails.StaticAllStaff)
                 {
                     if (SelectedStaffId == item.Id)
                     {
