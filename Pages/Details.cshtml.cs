@@ -19,24 +19,11 @@ namespace dsd601Images2020.Pages
         public int SelectedStaffId { get; set; }
 
 
-
-
-        public DetailsModel()
-        {
-
-            Staff = new SelectList(StaticPersonDetails.StaticAllStaff, nameof(PersonDetails.Id), nameof(PersonDetails.Name), null);
-        }
-        //Create a selectlist for the dropdown
-
-
-
         public void OnGet()
         {
-
+            LoadImages();
             SelectedStaff = new PersonDetails();
-
         }
-
 
         public void OnPost()
         {
@@ -51,12 +38,14 @@ namespace dsd601Images2020.Pages
                         SelectedStaff.Age = item.Age;
                         SelectedStaff.ImagePath = item.ImagePath;
                         SelectedStaff.Occupation = item.Occupation;
-
                     }
                 }
-
             }
-
+            LoadImages();
+        }
+        private void LoadImages()
+        {
+            Staff = new SelectList(StaticPersonDetails.StaticAllStaff, nameof(PersonDetails.Id), nameof(PersonDetails.Name), null);
         }
     }
 }
