@@ -26,7 +26,7 @@ namespace dsd601Images2020.Pages
         private void LoadImage()
         {
             //manually add files to the list
-            //  ImagepathList = new List<string>();
+            ImagepathList = new List<string>();
             //{
             //    //image names added to the list
             //    "photo1.jpg",
