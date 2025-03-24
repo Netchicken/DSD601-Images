@@ -12,9 +12,20 @@ namespace dsd601Images2020.Pages
         public List<string>? ImagepathList;
 
 
-        //create the constructor by typing ctor
-        public IndexModel()
+        public void OnGet()
         {
+            LoadImage();
+        }
+
+
+        public void OnPost()
+        {
+            LoadImage();
+        }
+
+        private void LoadImage()
+        {
+            //manually add files to the list
             ImagepathList = new List<string>();
             //{
             //    //image names added to the list
@@ -26,12 +37,8 @@ namespace dsd601Images2020.Pages
             //    "photo6.jpg"
             //};
 
-            LoadImage();
-        }
 
 
-        private void LoadImage()
-        {
             // Get the path to the wwwroot folder
             string wwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images");
 
@@ -43,20 +50,11 @@ namespace dsd601Images2020.Pages
             {
                 //remove the path to the image leaving only the name
                 // string fileName = Path.GetFileName(file); //get the file name only
+
+                //get the relative path to the image
                 string fileName = Path.GetRelativePath("wwwroot\\images", file); //this works as well.
                 ImagepathList.Add(fileName);
             }
-        }
-
-
-
-        public void OnGet()
-        {
-        }
-
-
-        public void OnPost()
-        {
         }
     }
 }
