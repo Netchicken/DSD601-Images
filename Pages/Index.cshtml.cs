@@ -42,7 +42,8 @@ namespace dsd601Images2020.Pages
             foreach (string file in allFiles)
             {
                 //remove the path to the image leaving only the name
-                string fileName = Path.GetFileName(file);
+                // string fileName = Path.GetFileName(file); //get the file name only
+                string fileName = Path.GetRelativePath("wwwroot\\images", file); //this works as well.
                 ImagepathList.Add(fileName);
             }
         }
