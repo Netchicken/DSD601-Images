@@ -14,13 +14,13 @@ namespace dsd601Images2020.Pages
 
         public void OnGet()
         {
-            ImagepathList.AddRange(LoadImagePure());
+            ImagepathList = LoadImagePure();
         }
 
 
         public void OnPost()
         {
-            LoadImage();
+            ImagepathList = LoadImagePure();
         }
 
         private void LoadImage()
